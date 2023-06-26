@@ -1,0 +1,5 @@
+# exclude everything
+llama_docs/*
+
+# exception to the rule
+!llama_docs/.gitkeep 

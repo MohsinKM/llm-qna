@@ -1,0 +1,10 @@
+# exclude everything
+*
+*.pdf
+*.doc
+*.xlsx
+llama_docs/*
+
+# exception to the rule
+!llama_docs/.gitkeep 
+

@@ -51,8 +51,8 @@ def qabot(input_text):
 
 
 if __name__ == "__main__":
-    construct_index(DOC_PATH, use_cache=False)
+    construct_index(DOC_PATH, use_cache=True)
     iface = gr.Interface(fn=qabot, inputs=gr.inputs.Textbox(lines=7, label='Enter your query'),
                          outputs="text",
                          title="Question and Answering App")
-    iface.launch(share=True)
+    iface.launch(share=False)

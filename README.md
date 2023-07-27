@@ -8,7 +8,9 @@ This project is a simple question and answering app that utilizes state-of-the-a
 
 Before running this script make sure that you have the environment setup. I have tested it python3.10. 
 This script will use OpenAI API Key. So make sure you have the API Key ready and set it in the environment.
-The full environment snapshot is shared in **_full_environment.txt_** file.
+The full Windows environment snapshot is shared in **_full_environment_windows.txt_** file. 
+For linux/Ubuntu please use **_full_environment.txt_** file. If you encounter pip failing to resolve dependancy then edit the 
+requirement file by removing specific version. 
 Packages: gradio, langchain, llama-index, tiktoken, openai, pypdf
 
 You can run this following command to install all the required packages.

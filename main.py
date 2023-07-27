@@ -13,7 +13,7 @@ import gradio as gr
 
 # os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY  # need to placed under env variables form run config
 DOC_PATH = './llama_docs'
-INDEX_PATH = './llama_index'
+INDEX_PATH = './my_index'
 
 
 def construct_index(doc_path=DOC_PATH, index_store=INDEX_PATH, use_cache=False):
@@ -43,7 +43,7 @@ def qabot(input_text):
     :param input_text: input prompt
     :return: response to the prompt
     """
-    storage_context = StorageContext.from_defaults(persist_dir="./llama_index")
+    storage_context = StorageContext.from_defaults(persist_dir=INDEX_PATH)
     index = load_index_from_storage(storage_context)
     query_engine = index.as_query_engine()
     response = query_engine.query(input_text)
@@ -51,8 +51,8 @@ def qabot(input_text):
 
 
 if __name__ == "__main__":
-    construct_index(DOC_PATH, use_cache=True)
+    construct_index(DOC_PATH, use_cache=False)
     iface = gr.Interface(fn=qabot, inputs=gr.inputs.Textbox(lines=7, label='Enter your query'),
                          outputs="text",
                          title="Question and Answering App")
-    iface.launch(share=False)
+    iface.launch(share=True)
